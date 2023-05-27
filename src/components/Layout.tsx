@@ -1,9 +1,30 @@
-import React from 'react'
+import React from "react";
+import Head from "next/head";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-function Layout() {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>Layout</div>
-  )
-}
+    <>
+      <Head>
+        <title>Cowichan Valley Wood Designs</title>
+        <meta
+          name="description"
+          content="Welcome to Cowichan Valley Wood Designs"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-export default Layout
+      <Navbar />
+
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+};
+
+export default Layout;
